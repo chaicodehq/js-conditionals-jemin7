@@ -27,4 +27,31 @@
  */
 export function calculateTax(income) {
   // Your code here
-}
+  let tax = 0;
+  const bracket1 = 20000;
+  const bracket2 = 40000;
+    if (income <= 10000) {
+      return 0;
+    }
+
+  if (income > 10000) {
+    income = income - 10000;
+    const taken = Math.min(income, bracket1);
+    tax = tax + taken / 10;
+    income = income - taken;
+  }
+
+  if (income > 0) {
+  const taken2 = Math.min(income, bracket2);
+  tax = tax + taken2 * 0.2;
+  income = income - taken2;
+  }
+  if (income > 0) {
+    const taken3 = income
+    tax = tax + taken3 * 0.3;
+    income = income - taken3;
+  } 
+
+      return tax;
+
+  }
